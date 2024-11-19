@@ -7,18 +7,17 @@ In the abstract, the authors write that ***our paper reveals that the flatness o
 
 $$w+\eta d$$
 
-is less stable as we increase $\eta$, if $w$ is a DP model, compared with a non-DP model. This makes sense to me--DP models are less flat--at least from the provided Figure 1. So maybe we can do something about the sharpness to make DP models perform better.
+is less stable as we increase $\eta$, if $w$ is a DP model, compared with a non-DP model. This makes sense to me--DP models are less flat--at least this is confirmed from [Figure 1]https://openreview.net/forum?id=LtdcfCw92l&referrer=%5Bthe%20profile%20of%20Tianlong%20Chen%5D(%2Fprofile%3Fid%3D~Tianlong_Chen1)). So maybe we can do something about the sharpness to make DP models perform better.
 
-#### How does this pizza taste?
-In the rest of this paper, the authors then propose ***a holistic framework to enforce appropriate weight flatness, which substantially improves model generalization with competitive privacy preservation***. Their algorithm can be summarized as follows. In each iteration with model weight $w$,
+The authors then propose ```a holistic framework to enforce appropriate weight flatness, which substantially improves model generalization with competitive privacy preservation```. Their algorithm is based on the following non-DP prototype. In each iteration with model weight $w$,
 
 1. find $v$ such that the loss is *maximized* at $w+v$;
 2. compute the model's gradient at $w+v$, and then perform the gradient descent from $w$.
 
-How to make this algorithm differentially private? First allow me to review the definition of DP. 
+How to make this algorithm differentially private? Allow me to review the definition of DP. 
 
-```We say a mechanism is DP if the following holds (roughly) the output of this mechanism does not depend much on any particular record in its input.``` 
+***We say a mechanism is DP if the following holds (roughly) the output of this mechanism does not depend much on any particular record in its input.*** DP is often enforced by perturbing the outcome of the mechanism, and the scale of the perturbation is proportional to the maximum influence that could be caused by any particular record. As a result, individual-level privacy is perserved and the information about the population/dataset is not completely hidden.
 
-How did the authors make this algorithm DP? The authors wrote ***We tailor AWP to DP training with two critical changes...the required noises in DP training are only added to the final gradient...instead of the process of computing $v$***. I gave up reading after seeing this. They say only the gradients in the second step are perturbed with DP noises. That means the first step is not differentially private, so the overall algorithm is not differentially private, since the information of training data is already encoded in $v$. It could be that the gradients computed from $w+v$ are all based on some particular record, and adding noises in the second step does not help hide this information at all. 
+How did the authors make this algorithm DP? The authors wrote ```We tailor AWP to DP training with two critical changes...the required noises in DP training are only added to the final gradient...instead of the process of computing v (in the first step)```. I gave up reading after seeing this. The first step is not perturbed with noises, so the overall algorithm is not differentially private. Because the information of training data is already encoded in $w+v$, so it could happen that the gradients computed in the second are all based on some particular record. In this case, adding noises to obfuscate one gradient does not help hide this information at all. 
 
-This concludes my first review. Maybe the authors have made some pioneering efforts ***to investigate that the critical role of weight flatness in DP-trained LLMs***. Sadly I do not understand those efforts. This is similar to seeing cold chocolates on top of hot pizzas with melting cheese. It is a quite bold combination but I could not appreciate the idea; perhaps, if the chef really care about pizza, at least, please, make the chocolates hot. 
+This concludes my first review. Maybe the authors have made some pioneering efforts ```to investigate that the critical role of weight flatness in DP-trained LLMs```. Sadly I do not understand those efforts. This is similar to seeing cold chocolates on top of hot pizzas with melting cheese. It is a quite bold combination but I could not appreciate the idea; perhaps, if the chef really care about pizza, at least, please, make the chocolates hot. 
