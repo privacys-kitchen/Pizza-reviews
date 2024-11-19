@@ -7,7 +7,7 @@ In the abstract, the authors write that ***our paper reveals that the flatness o
 
 $$w+\eta d$$
 
-is less stable as we increase $\eta$, if $w$ is a DP model, compared with a non-DP model. This makes sense to me--DP models are less flat--at least this is confirmed from [Figure 1](https://openreview.net/forum?id=LtdcfCw92l&referrer=%5Bthe%20profile%20of%20Tianlong%20Chen%5D(%2Fprofile%3Fid%3D~Tianlong_Chen1)). So maybe we can do something about the sharpness to make DP models perform better.
+is less stable as we increase $\eta$, if $w$ is a DP model, compared with a non-DP model. This makes sense to me--DP models are less flat--at least this is confirmed from [Figure 1](https://openreview.net/pdf?id=LtdcfCw92l). So maybe we can do something about the sharpness to make DP models perform better.
 
 The authors then propose ```a holistic framework to enforce appropriate weight flatness, which substantially improves model generalization with competitive privacy preservation```. Their algorithm is based on the following non-DP prototype. In each iteration with model weight $w$,
 
