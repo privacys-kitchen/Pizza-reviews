@@ -8,4 +8,4 @@ My reviews
 | topics | date | title |
 |:-------|:-----|:------|
 | DP fine-tuning | 2024-11-19 | [dp through flatness](https://github.com/privacys-kitchen/Pizza-reviews/blob/main/dp%20through%20flatness.md)
-| DP for NLP | 2024-11-20 | [DP Representation for NLP](https://github.com/privacys-kitchen/Pizza-reviews/blob/main/dp%20through%20flatness.md)
+| DP for NLP | 2024-11-20 | [DP Representation for NLP](https://github.com/privacys-kitchen/Pizza-reviews/blob/main/DP%20Representation%20for%20NLP.md)
