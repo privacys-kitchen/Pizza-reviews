@@ -30,6 +30,10 @@ In the above table, the accuracy barely changes after Local DP is enforced, beca
 
 ![Figure 5: Results of DP NLP representation-follow-up](fig_6.jpg) 
 
-How to spot such mistakes? I believe that it is impossible to go through every detail in the proof of every paper. Still, we should build some intuition about differential privacy (especially for researchers publishing papers, it is better not to circulate incorrect ideas). In this paper, the main (but wrong) meassage is that with local DP enforced, the prediction accuracy barely changes. This is obviously incorrect. The intuition is simple: local DP effectively obfuscates all information about an individual ('s features) so that no downstream task recover it (DP is preserved under post-processing) and produce accurate personal-level prediction. On the other hand, if the task is to learn something about a population (rather than an individual), then local DP still works. Because when individual's contribution (obfuscated or not) may not influence the trend of a population. I hope my post helps you to build some intuition on differential privacy.
+How to spot such mistakes? 
+
+I believe that it is impossible to go through every detail in the proof of every paper. Still, we should build some intuition about differential privacy (especially for researchers publishing papers, it is better not to circulate incorrect ideas). In this paper, the main (but wrong) meassage is that with local DP enforced, the prediction accuracy barely changes. This is obviously incorrect. The intuition is simple: local DP effectively obfuscates all information about an individual ('s features) so that no downstream task recover it (DP is preserved under post-processing) and produce accurate personal-level prediction. 
+
+On the other hand, if the task is to learn something about a population (rather than an individual), then local DP still works. Because when individual's contribution (obfuscated or not) may not influence the trend of a population. I hope my post helps you to build some intuition on differential privacy.
 
 
